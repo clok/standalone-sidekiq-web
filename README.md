@@ -1,0 +1,22 @@
+# Standalone Sidekiq Web
+
+Launch a standalone Sidekiq Web dashboard via Docker
+
+## Build
+
+```
+$ docker build -t sidekiq-web:dev .
+```
+
+## Run
+
+```
+$ docker run -P -e REDIS_URL=<the redis url> -it sidekiq-web:dev
+```
+
+## Configuration
+
+```
+REDIS_SIZE: Concurrency setting (default: 1)
+REDIS_URL: The redis host URL (default: redisdb://localhost:6379/0)
+```
