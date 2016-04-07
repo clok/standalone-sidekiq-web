@@ -19,4 +19,5 @@ $ docker run -P -e REDIS_URL=<the redis url> -it sidekiq-web:dev
 ```
 REDIS_SIZE: Concurrency setting (default: 1)
 REDIS_URL: The redis host URL (default: redis://localhost:6379/0)
+SIDEKIQ_CRON: Set to true to enable the Sidekiq Cron view (default: false)
 ```

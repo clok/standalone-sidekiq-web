@@ -1,4 +1,5 @@
 require 'sidekiq'
+require 'sidekiq-cron' unless ENV['SIDEKIQ_CRON'].nil? || ENV['SIDEKIQ_CRON'] == 'false'
 
 size = ENV['REDIS_SIZE'].nil? ? 1 : ENV['REDIS_SIZE'].to_i
 url  = ENV['REDIS_URL'].nil? ? 'redis://localhost:6379/0' : ENV['REDIS_URL']
@@ -8,4 +9,5 @@ Sidekiq.configure_client do |config|
 end
 
 require 'sidekiq/web'
+require 'sidekiq/cron/web' unless ENV['SIDEKIQ_CRON'].nil? || ENV['SIDEKIQ_CRON'] == 'false'
 run Rack::URLMap.new('/' => Sidekiq::Web)
