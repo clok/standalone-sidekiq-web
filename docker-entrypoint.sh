@@ -22,6 +22,13 @@ else
     echo "SIDEKIQ_CRON: ${SIDEKIQ_CRON}"
 fi
 
+if [[ "${SIDEKIQ_HOST}" == "" ]]
+then
+    echo "SIDEKIQ_HOST: 127.0.0.1 (default)"
+else
+    echo "SIDEKIQ_HOST: ${SIDEKIQ_HOST}"
+fi
+
 if [[ "${SIDEKIQ_USERNAME}" == "" ]]
 then
     echo "SIDEKIQ_USERNAME: NONE (default)"

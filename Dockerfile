@@ -21,4 +21,4 @@ ADD docker-entrypoint.sh /
 EXPOSE 9292
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["bundle", "exec", "rackup", "config.ru"]
+CMD ["sh", "-c", "bundle exec rackup config.ru --host ${SIDEKIQ_HOST:-127.0.0.1}"]
