@@ -21,4 +21,4 @@ ADD docker-entrypoint.sh /
 EXPOSE 9292
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["bundle", "exec", "rackup", "config.ru"]
+CMD ["bundle", "exec", "rackup", "-o", "0.0.0.0", "config.ru"]
