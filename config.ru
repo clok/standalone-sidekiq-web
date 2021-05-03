@@ -6,9 +6,10 @@ require 'sidekiq-cron' if cron
 
 size = ENV['REDIS_SIZE'].nil? ? 1 : ENV['REDIS_SIZE'].to_i
 url  = ENV['REDIS_URL'].nil? ? 'redis://localhost:6379/0' : ENV['REDIS_URL']
+namespace = ENV['NAMESPACE'].nil? ? 'sidekiq' : ENV['NAMESPACE']
 
 Sidekiq.configure_client do |config|
-  config.redis = { :size => size, url: url }
+  config.redis = { :size => size, url: url, namespace: namespace }
 end
 
 require 'sidekiq/web'
